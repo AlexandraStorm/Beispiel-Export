@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ecff7ae518b84a0180c34ba8d8298979" Name="Diagram1">
+        <EntityTypeShape EntityType="matchitModel.tbAntibodyLot" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbAntibodyMethod" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbAntigens" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbBatch" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbBeadHits" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDNAAllele" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDNAData" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDNAFinalAssignment" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDNALot" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDNAMethod" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDNASuggestedAssignments" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbAlleleProbeVals" Width="1.5" PointX="13.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbAntibodyData" Width="1.5" PointX="12" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbAntibodyExpSet" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbAntibodyStats" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDBVer" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matchitModel.tbDNAExpSet" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <AssociationConnector Association="matchitModel.FK_tbAntibodyData_tbAntibodyMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbAntibodyStats_tbAntibodyMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbBeadHits_tbDNALot" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbDNASuggestedAssignments_tbDNAAllele" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbDNASuggestedAssignments_tbDNAAllele1" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbDNAData_tbDNAMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbFinalAssignment_tbDNALot" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbDNAExpSet_tbDNALot" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbDNAMethod_tbDNALot" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.FK_tbDNASuggestedAssignments_tbDNAMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="matchitModel.tbAlleleBeadHit" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="matchitModel.DNAFinalAssignmentView" Width="1.5" PointX="14.375" PointY="9.75" />
+        <EntityTypeShape EntityType="matchitModel.SingleAntigenV2ExportView" Width="1.5" PointX="14.375" PointY="15.75" />
+        <EntityTypeShape EntityType="matchitModel.DNAViewReportHeader" Width="1.5" PointX="16.375" PointY="9.75" />
+        <EntityTypeShape EntityType="matchitModel.DNAViewReportFinalAssignments" Width="1.5" PointX="16.375" PointY="13.75" />
+        <EntityTypeShape EntityType="matchitModel.DNAViewReportFinalDRB345Assignments" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="matchitModel.tbAntibodyResults" Width="1.5" PointX="12" PointY="18.5" />
+        <AssociationConnector Association="matchitModel.FK_tbAntibodyResults_tbAntibodyMethod" />
+        <EntityTypeShape EntityType="matchitModel.LMXReportDataVBAFView" Width="1.5" PointX="16.375" PointY="17.75" />
+        <EntityTypeShape EntityType="matchitModel.LMXReportDataView" Width="1.5" PointX="18.375" PointY="4.75" />
+        <EntityTypeShape EntityType="matchitModel.SingleAntigenOncCONExportView" Width="1.5" PointX="5.375" PointY="18.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

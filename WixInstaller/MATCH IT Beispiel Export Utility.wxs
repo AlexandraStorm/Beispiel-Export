@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="5056a385-45fb-4d81-a13e-55b726116f01" Name="MATCH IT Beispiel Export Utility" Language="1033" Codepage="Windows-1252" Version="1.0.0" UpgradeCode="74605fea-7c18-46ad-b54c-6a9181988a85" Manufacturer="Immucor, Inc.">
+    <Package InstallerVersion="200" Compressed="yes" Platform="x86" SummaryCodepage="Windows-1252" InstallScope="perMachine" Languages="1033" />
+    <Media Id="1" Cabinet="MATCH_IT_Beispiel_Export_Utility.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="ProgramFilesFolder">
+        <Directory Id="ProgramFilesFolder.LIFECODES" Name="LIFECODES">
+          <Directory Id="INSTALLDIR" Name="MATCH IT Beispiel Export Utility">
+
+            <Component Id="Component.Beispiel_Export.exe_941701281" Guid="5056a385-45fb-4d81-a13e-55b7173677ed">
+              <File Id="Beispiel_Export.exe_941701281" Source="PublishedFiles\Beispiel Export.exe">
+                <Shortcut Id="Shortcut.Beispiel_Export.exe_941701281._...TCH_IT_Beispiel_Export_Utility_" WorkingDirectory="Shortcut.Beispiel_Export.exe_941701281._...TCH_IT_Beispiel_Export_Utility_.WorkDir" Directory="ProgramMenuFolder.Lifecodes" Name="MATCH IT Beispiel Export Utility.lnk" />
+                <Shortcut Id="Shortcut.Beispiel_Export.exe_941701281._...TCH_IT_Beispiel_Export_Utility.1" WorkingDirectory="Shortcut.Beispiel_Export.exe_941701281._...TCH_IT_Beispiel_Export_Utility.1.WorkDir" Directory="DesktopFolder" Name="MATCH IT Beispiel Export Utility.lnk" />
+              </File>
+
+              <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                <RegistryValue Value="0" Type="string" KeyPath="yes" />
+              </RegistryKey>
+            </Component>
+
+            <Component Id="Component.Beispiel_Export.exe.config_2522139463" Guid="5056a385-45fb-4d81-a13e-55b751b157eb">
+              <File Id="Beispiel_Export.exe.config_2522139463" Source="PublishedFiles\Beispiel Export.exe.config" />
+            </Component>
+
+            <Component Id="Component.Beispiel_Export.pdb_234399727" Guid="5056a385-45fb-4d81-a13e-55b79a5985d5">
+              <File Id="Beispiel_Export.pdb_234399727" Source="PublishedFiles\Beispiel Export.pdb" />
+            </Component>
+
+            <Component Id="Component.Beispiel.config_249757560" Guid="5056a385-45fb-4d81-a13e-55b769925452">
+              <File Id="Beispiel.config_249757560" Source="PublishedFiles\Beispiel.config" />
+            </Component>
+
+            <Component Id="Component.BeispielExportModel.dll_2265993536" Guid="5056a385-45fb-4d81-a13e-55b75b6296d7">
+              <File Id="BeispielExportModel.dll_2265993536" Source="PublishedFiles\BeispielExportModel.dll" />
+            </Component>
+
+            <Component Id="Component.BeispielExportModel.dll.config_3696022491" Guid="5056a385-45fb-4d81-a13e-55b7a29e5bd6">
+              <File Id="BeispielExportModel.dll.config_3696022491" Source="PublishedFiles\BeispielExportModel.dll.config" />
+            </Component>
+
+            <Component Id="Component.BeispielExportModel.pdb_2349783554" Guid="5056a385-45fb-4d81-a13e-55b745c84975">
+              <File Id="BeispielExportModel.pdb_2349783554" Source="PublishedFiles\BeispielExportModel.pdb" />
+            </Component>
+
+            <Component Id="Component.BeispielUtilityPresenter.dll_1229651398" Guid="5056a385-45fb-4d81-a13e-55b7750d9821">
+              <File Id="BeispielUtilityPresenter.dll_1229651398" Source="PublishedFiles\BeispielUtilityPresenter.dll" />
+            </Component>
+
+            <Component Id="Component.BeispielUtilityPresenter.pdb_1701641678" Guid="5056a385-45fb-4d81-a13e-55b7c6bf1592">
+              <File Id="BeispielUtilityPresenter.pdb_1701641678" Source="PublishedFiles\BeispielUtilityPresenter.pdb" />
+            </Component>
+
+            <Component Id="Component.BeispielViewModel.dll_1993867295" Guid="5056a385-45fb-4d81-a13e-55b7ae804a0a">
+              <File Id="BeispielViewModel.dll_1993867295" Source="PublishedFiles\BeispielViewModel.dll" />
+            </Component>
+
+            <Component Id="Component.BeispielViewModel.pdb_3512372801" Guid="5056a385-45fb-4d81-a13e-55b7debd1619">
+              <File Id="BeispielViewModel.pdb_3512372801" Source="PublishedFiles\BeispielViewModel.pdb" />
+            </Component>
+
+            <Component Id="Component.DataAccess.dll_2713051302" Guid="5056a385-45fb-4d81-a13e-55b7a3a92223">
+              <File Id="DataAccess.dll_2713051302" Source="PublishedFiles\DataAccess.dll" />
+            </Component>
+
+            <Component Id="Component.DataAccess.dll.config_867392436" Guid="5056a385-45fb-4d81-a13e-55b76362b078">
+              <File Id="DataAccess.dll.config_867392436" Source="PublishedFiles\DataAccess.dll.config" />
+            </Component>
+
+            <Component Id="Component.DataAccess.pdb_4217079166" Guid="5056a385-45fb-4d81-a13e-55b7f9efa3b8">
+              <File Id="DataAccess.pdb_4217079166" Source="PublishedFiles\DataAccess.pdb" />
+            </Component>
+
+            <Component Id="Component.DevExpress.BonusSkins.v19.2.dll_2930522132" Guid="5056a385-45fb-4d81-a13e-55b783889ad8">
+              <File Id="DevExpress.BonusSkins.v19.2.dll_2930522132" Source="PublishedFiles\DevExpress.BonusSkins.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Data.v19.2.dll_1214612250" Guid="5056a385-45fb-4d81-a13e-55b7cef4037c">
+              <File Id="DevExpress.Data.v19.2.dll_1214612250" Source="PublishedFiles\DevExpress.Data.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Data.v19.2.xml_1214677814" Guid="5056a385-45fb-4d81-a13e-55b7020acbda">
+              <File Id="DevExpress.Data.v19.2.xml_1214677814" Source="PublishedFiles\DevExpress.Data.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Images.v19.2.dll_1554222061" Guid="5056a385-45fb-4d81-a13e-55b7c7a3f17f">
+              <File Id="DevExpress.Images.v19.2.dll_1554222061" Source="PublishedFiles\DevExpress.Images.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Office.v19.2.Core.dll_4020367935" Guid="5056a385-45fb-4d81-a13e-55b7424c1b0f">
+              <File Id="DevExpress.Office.v19.2.Core.dll_4020367935" Source="PublishedFiles\DevExpress.Office.v19.2.Core.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Office.v19.2.Core.xml_2962616896" Guid="5056a385-45fb-4d81-a13e-55b743ad841a">
+              <File Id="DevExpress.Office.v19.2.Core.xml_2962616896" Source="PublishedFiles\DevExpress.Office.v19.2.Core.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Pdf.v19.2.Core.dll_3477404071" Guid="5056a385-45fb-4d81-a13e-55b798fe42cb">
+              <File Id="DevExpress.Pdf.v19.2.Core.dll_3477404071" Source="PublishedFiles\DevExpress.Pdf.v19.2.Core.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Pdf.v19.2.Core.xml_3477469627" Guid="5056a385-45fb-4d81-a13e-55b73fe988d4">
+              <File Id="DevExpress.Pdf.v19.2.Core.xml_3477469627" Source="PublishedFiles\DevExpress.Pdf.v19.2.Core.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Printing.v19.2.Core.dll_419412123" Guid="5056a385-45fb-4d81-a13e-55b71e765e1c">
+              <File Id="DevExpress.Printing.v19.2.Core.dll_419412123" Source="PublishedFiles\DevExpress.Printing.v19.2.Core.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Printing.v19.2.Core.xml_3146984758" Guid="5056a385-45fb-4d81-a13e-55b77976fdc9">
+              <File Id="DevExpress.Printing.v19.2.Core.xml_3146984758" Source="PublishedFiles\DevExpress.Printing.v19.2.Core.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.RichEdit.v19.2.Core.dll_221975947" Guid="5056a385-45fb-4d81-a13e-55b7e6966c35">
+              <File Id="DevExpress.RichEdit.v19.2.Core.dll_221975947" Source="PublishedFiles\DevExpress.RichEdit.v19.2.Core.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.RichEdit.v19.2.Core.xml_2949024294" Guid="5056a385-45fb-4d81-a13e-55b727fa95c1">
+              <File Id="DevExpress.RichEdit.v19.2.Core.xml_2949024294" Source="PublishedFiles\DevExpress.RichEdit.v19.2.Core.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Sparkline.v19.2.Core.dll_3169792546" Guid="5056a385-45fb-4d81-a13e-55b7c4b79d67">
+              <File Id="DevExpress.Sparkline.v19.2.Core.dll_3169792546" Source="PublishedFiles\DevExpress.Sparkline.v19.2.Core.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Sparkline.v19.2.Core.xml_3182845878" Guid="5056a385-45fb-4d81-a13e-55b74fb0ab94">
+              <File Id="DevExpress.Sparkline.v19.2.Core.xml_3182845878" Source="PublishedFiles\DevExpress.Sparkline.v19.2.Core.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Utils.v19.2.dll_331540235" Guid="5056a385-45fb-4d81-a13e-55b7cb4fdea2">
+              <File Id="DevExpress.Utils.v19.2.dll_331540235" Source="PublishedFiles\DevExpress.Utils.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.Utils.v19.2.xml_1898934896" Guid="5056a385-45fb-4d81-a13e-55b7f1b13517">
+              <File Id="DevExpress.Utils.v19.2.xml_1898934896" Source="PublishedFiles\DevExpress.Utils.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraBars.v19.2.dll_2762450427" Guid="5056a385-45fb-4d81-a13e-55b7cd48cff6">
+              <File Id="DevExpress.XtraBars.v19.2.dll_2762450427" Source="PublishedFiles\DevExpress.XtraBars.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraBars.v19.2.xml_2762515991" Guid="5056a385-45fb-4d81-a13e-55b7b9f5b53f">
+              <File Id="DevExpress.XtraBars.v19.2.xml_2762515991" Source="PublishedFiles\DevExpress.XtraBars.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraEditors.v19.2.dll_2874065518" Guid="5056a385-45fb-4d81-a13e-55b740572c69">
+              <File Id="DevExpress.XtraEditors.v19.2.dll_2874065518" Source="PublishedFiles\DevExpress.XtraEditors.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraEditors.v19.2.xml_3638739567" Guid="5056a385-45fb-4d81-a13e-55b71aef958d">
+              <File Id="DevExpress.XtraEditors.v19.2.xml_3638739567" Source="PublishedFiles\DevExpress.XtraEditors.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraGrid.v19.2.dll_2542146726" Guid="5056a385-45fb-4d81-a13e-55b7cd7e5233">
+              <File Id="DevExpress.XtraGrid.v19.2.dll_2542146726" Source="PublishedFiles\DevExpress.XtraGrid.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraGrid.v19.2.xml_2542212274" Guid="5056a385-45fb-4d81-a13e-55b71ddf0bb2">
+              <File Id="DevExpress.XtraGrid.v19.2.xml_2542212274" Source="PublishedFiles\DevExpress.XtraGrid.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraLayout.v19.2.dll_1488684474" Guid="5056a385-45fb-4d81-a13e-55b74940dc9d">
+              <File Id="DevExpress.XtraLayout.v19.2.dll_1488684474" Source="PublishedFiles\DevExpress.XtraLayout.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraLayout.v19.2.xml_2214198526" Guid="5056a385-45fb-4d81-a13e-55b748bc1a18">
+              <File Id="DevExpress.XtraLayout.v19.2.xml_2214198526" Source="PublishedFiles\DevExpress.XtraLayout.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraPrinting.v19.2.dll_899745652" Guid="5056a385-45fb-4d81-a13e-55b7a7cfe8a3">
+              <File Id="DevExpress.XtraPrinting.v19.2.dll_899745652" Source="PublishedFiles\DevExpress.XtraPrinting.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraPrinting.v19.2.xml_899811176" Guid="5056a385-45fb-4d81-a13e-55b7f89f8dc7">
+              <File Id="DevExpress.XtraPrinting.v19.2.xml_899811176" Source="PublishedFiles\DevExpress.XtraPrinting.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraScheduler.v19.2.Core.dll_4082438417" Guid="5056a385-45fb-4d81-a13e-55b7ed9c538b">
+              <File Id="DevExpress.XtraScheduler.v19.2.Core.dll_4082438417" Source="PublishedFiles\DevExpress.XtraScheduler.v19.2.Core.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraScheduler.v19.2.Core.xml_4069385085" Guid="5056a385-45fb-4d81-a13e-55b7fce162ea">
+              <File Id="DevExpress.XtraScheduler.v19.2.Core.xml_4069385085" Source="PublishedFiles\DevExpress.XtraScheduler.v19.2.Core.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraScheduler.v19.2.dll_2315616009" Guid="5056a385-45fb-4d81-a13e-55b78a00666b">
+              <File Id="DevExpress.XtraScheduler.v19.2.dll_2315616009" Source="PublishedFiles\DevExpress.XtraScheduler.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraScheduler.v19.2.xml_3880389230" Guid="5056a385-45fb-4d81-a13e-55b738c62548">
+              <File Id="DevExpress.XtraScheduler.v19.2.xml_3880389230" Source="PublishedFiles\DevExpress.XtraScheduler.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraTreeList.v19.2.dll_1630040618" Guid="5056a385-45fb-4d81-a13e-55b786b34f27">
+              <File Id="DevExpress.XtraTreeList.v19.2.dll_1630040618" Source="PublishedFiles\DevExpress.XtraTreeList.v19.2.dll" />
+            </Component>
+
+            <Component Id="Component.DevExpress.XtraTreeList.v19.2.xml_1630106134" Guid="5056a385-45fb-4d81-a13e-55b79190208b">
+              <File Id="DevExpress.XtraTreeList.v19.2.xml_1630106134" Source="PublishedFiles\DevExpress.XtraTreeList.v19.2.xml" />
+            </Component>
+
+            <Component Id="Component.EntityFramework.dll_2295560787" Guid="5056a385-45fb-4d81-a13e-55b71302a0b0">
+              <File Id="EntityFramework.dll_2295560787" Source="PublishedFiles\EntityFramework.dll" />
+            </Component>
+
+            <Component Id="Component.EntityFramework.SqlServer.dll_2140173085" Guid="5056a385-45fb-4d81-a13e-55b741af4df4">
+              <File Id="EntityFramework.SqlServer.dll_2140173085" Source="PublishedFiles\EntityFramework.SqlServer.dll" />
+            </Component>
+
+            <Component Id="Component.EntityFramework.xml_2282507455" Guid="5056a385-45fb-4d81-a13e-55b7e8d40394">
+              <File Id="EntityFramework.xml_2282507455" Source="PublishedFiles\EntityFramework.xml" />
+            </Component>
+
+            <Component Id="Component.EvolutionDBFacade.dll_867031146" Guid="5056a385-45fb-4d81-a13e-55b759681e74">
+              <File Id="EvolutionDBFacade.dll_867031146" Source="PublishedFiles\EvolutionDBFacade.dll" />
+            </Component>
+
+            <Component Id="Component.EvolutionDBFacade.pdb_60986368" Guid="5056a385-45fb-4d81-a13e-55b7a9842c69">
+              <File Id="EvolutionDBFacade.pdb_60986368" Source="PublishedFiles\EvolutionDBFacade.pdb" />
+            </Component>
+
+            <Component Id="Component.EvolutionDBFacade.xml_866965606" Guid="5056a385-45fb-4d81-a13e-55b7e45c5faf">
+              <File Id="EvolutionDBFacade.xml_866965606" Source="PublishedFiles\EvolutionDBFacade.xml" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Practices.EnterpriseLibrary.Common.dll_797932281" Guid="5056a385-45fb-4d81-a13e-55b7227e2ee7">
+              <File Id="Microsoft.Practices.EnterpriseLibrary.Common.dll_797932281" Source="PublishedFiles\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Practices.EnterpriseLibrary.Data.dll_2310133108" Guid="5056a385-45fb-4d81-a13e-55b796498f18">
+              <File Id="Microsoft.Practices.EnterpriseLibrary.Data.dll_2310133108" Source="PublishedFiles\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll_534353646" Guid="5056a385-45fb-4d81-a13e-55b7097826fb">
+              <File Id="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll_534353646" Source="PublishedFiles\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Practices.ObjectBuilder2.dll_1636818377" Guid="5056a385-45fb-4d81-a13e-55b7bf5ed3b0">
+              <File Id="Microsoft.Practices.ObjectBuilder2.dll_1636818377" Source="PublishedFiles\Microsoft.Practices.ObjectBuilder2.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Practices.Unity.dll_1755056358" Guid="5056a385-45fb-4d81-a13e-55b78ef20dee">
+              <File Id="Microsoft.Practices.Unity.dll_1755056358" Source="PublishedFiles\Microsoft.Practices.Unity.dll" />
+            </Component>
+
+            <Directory Id="de" Name="de">
+
+              <Component Id="Component.DevExpress.Data.v19.2.resources.dll_1007386988" Guid="5056a385-45fb-4d81-a13e-55b7f7cc51e7">
+                <File Id="DevExpress.Data.v19.2.resources.dll_1007386988" Source="PublishedFiles\de\DevExpress.Data.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Office.v19.2.Core.resources.dll_3822682635" Guid="5056a385-45fb-4d81-a13e-55b7f49fbda6">
+                <File Id="DevExpress.Office.v19.2.Core.resources.dll_3822682635" Source="PublishedFiles\de\DevExpress.Office.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_3736141309" Guid="5056a385-45fb-4d81-a13e-55b720623649">
+                <File Id="DevExpress.Pdf.v19.2.Core.resources.dll_3736141309" Source="PublishedFiles\de\DevExpress.Pdf.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_2886996431" Guid="5056a385-45fb-4d81-a13e-55b75e583c57">
+                <File Id="DevExpress.Printing.v19.2.Core.resources.dll_2886996431" Source="PublishedFiles\de\DevExpress.Printing.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_829484937" Guid="5056a385-45fb-4d81-a13e-55b7875c9f2d">
+                <File Id="DevExpress.RichEdit.v19.2.Core.resources.dll_829484937" Source="PublishedFiles\de\DevExpress.RichEdit.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_109231811" Guid="5056a385-45fb-4d81-a13e-55b770f2ee90">
+                <File Id="DevExpress.Sparkline.v19.2.Core.resources.dll_109231811" Source="PublishedFiles\de\DevExpress.Sparkline.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Utils.v19.2.resources.dll_1921641714" Guid="5056a385-45fb-4d81-a13e-55b7042ca8d4">
+                <File Id="DevExpress.Utils.v19.2.resources.dll_1921641714" Source="PublishedFiles\de\DevExpress.Utils.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraBars.v19.2.resources.dll_1918539029" Guid="5056a385-45fb-4d81-a13e-55b7e37412c5">
+                <File Id="DevExpress.XtraBars.v19.2.resources.dll_1918539029" Source="PublishedFiles\de\DevExpress.XtraBars.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_2853769078" Guid="5056a385-45fb-4d81-a13e-55b7e9c4a73d">
+                <File Id="DevExpress.XtraEditors.v19.2.resources.dll_2853769078" Source="PublishedFiles\de\DevExpress.XtraEditors.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_2516232502" Guid="5056a385-45fb-4d81-a13e-55b776839c28">
+                <File Id="DevExpress.XtraGrid.v19.2.resources.dll_2516232502" Source="PublishedFiles\de\DevExpress.XtraGrid.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_3765075918" Guid="5056a385-45fb-4d81-a13e-55b7fe0c40a3">
+                <File Id="DevExpress.XtraLayout.v19.2.resources.dll_3765075918" Source="PublishedFiles\de\DevExpress.XtraLayout.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_551338518" Guid="5056a385-45fb-4d81-a13e-55b7f7e15ba2">
+                <File Id="DevExpress.XtraPrinting.v19.2.resources.dll_551338518" Source="PublishedFiles\de\DevExpress.XtraPrinting.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_2900794122" Guid="5056a385-45fb-4d81-a13e-55b7ac414744">
+                <File Id="DevExpress.XtraScheduler.v19.2.Core.resources.dll_2900794122" Source="PublishedFiles\de\DevExpress.XtraScheduler.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_3764381464" Guid="5056a385-45fb-4d81-a13e-55b7512a419c">
+                <File Id="DevExpress.XtraScheduler.v19.2.resources.dll_3764381464" Source="PublishedFiles\de\DevExpress.XtraScheduler.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_4272216772" Guid="5056a385-45fb-4d81-a13e-55b742b4764b">
+                <File Id="DevExpress.XtraTreeList.v19.2.resources.dll_4272216772" Source="PublishedFiles\de\DevExpress.XtraTreeList.v19.2.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="es" Name="es">
+
+              <Component Id="Component.DevExpress.Data.v19.2.resources.dll_2004998272" Guid="5056a385-45fb-4d81-a13e-55b7056fdfdb">
+                <File Id="DevExpress.Data.v19.2.resources.dll_2004998272" Source="PublishedFiles\es\DevExpress.Data.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Office.v19.2.Core.resources.dll_961897606" Guid="5056a385-45fb-4d81-a13e-55b70d16bf1e">
+                <File Id="DevExpress.Office.v19.2.Core.resources.dll_961897606" Source="PublishedFiles\es\DevExpress.Office.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_3408131736" Guid="5056a385-45fb-4d81-a13e-55b7f10daa85">
+                <File Id="DevExpress.Pdf.v19.2.Core.resources.dll_3408131736" Source="PublishedFiles\es\DevExpress.Pdf.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_3166508224" Guid="5056a385-45fb-4d81-a13e-55b7ce0950fa">
+                <File Id="DevExpress.Printing.v19.2.Core.resources.dll_3166508224" Source="PublishedFiles\es\DevExpress.Printing.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_4270627702" Guid="5056a385-45fb-4d81-a13e-55b719cdd92b">
+                <File Id="DevExpress.RichEdit.v19.2.Core.resources.dll_4270627702" Source="PublishedFiles\es\DevExpress.RichEdit.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_3122310010" Guid="5056a385-45fb-4d81-a13e-55b778fbfdbd">
+                <File Id="DevExpress.Sparkline.v19.2.Core.resources.dll_3122310010" Source="PublishedFiles\es\DevExpress.Sparkline.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Utils.v19.2.resources.dll_572580490" Guid="5056a385-45fb-4d81-a13e-55b76d40d0fb">
+                <File Id="DevExpress.Utils.v19.2.resources.dll_572580490" Source="PublishedFiles\es\DevExpress.Utils.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraBars.v19.2.resources.dll_568010500" Guid="5056a385-45fb-4d81-a13e-55b7f8865b5c">
+                <File Id="DevExpress.XtraBars.v19.2.resources.dll_568010500" Source="PublishedFiles\es\DevExpress.XtraBars.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_161117515" Guid="5056a385-45fb-4d81-a13e-55b7682f99b2">
+                <File Id="DevExpress.XtraEditors.v19.2.resources.dll_161117515" Source="PublishedFiles\es\DevExpress.XtraEditors.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_2804319519" Guid="5056a385-45fb-4d81-a13e-55b73fe6bb13">
+                <File Id="DevExpress.XtraGrid.v19.2.resources.dll_2804319519" Source="PublishedFiles\es\DevExpress.XtraGrid.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_3569924384" Guid="5056a385-45fb-4d81-a13e-55b711f3b46c">
+                <File Id="DevExpress.XtraLayout.v19.2.resources.dll_3569924384" Source="PublishedFiles\es\DevExpress.XtraLayout.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_1870816876" Guid="5056a385-45fb-4d81-a13e-55b746f48427">
+                <File Id="DevExpress.XtraPrinting.v19.2.resources.dll_1870816876" Source="PublishedFiles\es\DevExpress.XtraPrinting.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_2495011437" Guid="5056a385-45fb-4d81-a13e-55b7c6a81f18">
+                <File Id="DevExpress.XtraScheduler.v19.2.Core.resources.dll_2495011437" Source="PublishedFiles\es\DevExpress.XtraScheduler.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_2085074402" Guid="5056a385-45fb-4d81-a13e-55b7fa4f662d">
+                <File Id="DevExpress.XtraScheduler.v19.2.resources.dll_2085074402" Source="PublishedFiles\es\DevExpress.XtraScheduler.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_3748532332" Guid="5056a385-45fb-4d81-a13e-55b7824bcd1e">
+                <File Id="DevExpress.XtraTreeList.v19.2.resources.dll_3748532332" Source="PublishedFiles\es\DevExpress.XtraTreeList.v19.2.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="ja" Name="ja">
+
+              <Component Id="Component.DevExpress.Data.v19.2.resources.dll_413458876" Guid="5056a385-45fb-4d81-a13e-55b7c01970bb">
+                <File Id="DevExpress.Data.v19.2.resources.dll_413458876" Source="PublishedFiles\ja\DevExpress.Data.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Office.v19.2.Core.resources.dll_1392489440" Guid="5056a385-45fb-4d81-a13e-55b70582bec2">
+                <File Id="DevExpress.Office.v19.2.Core.resources.dll_1392489440" Source="PublishedFiles\ja\DevExpress.Office.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_3786456484" Guid="5056a385-45fb-4d81-a13e-55b7ca82da84">
+                <File Id="DevExpress.Pdf.v19.2.Core.resources.dll_3786456484" Source="PublishedFiles\ja\DevExpress.Pdf.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_761892996" Guid="5056a385-45fb-4d81-a13e-55b7e3e3297e">
+                <File Id="DevExpress.Printing.v19.2.Core.resources.dll_761892996" Source="PublishedFiles\ja\DevExpress.Printing.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_628196544" Guid="5056a385-45fb-4d81-a13e-55b7b6306dcb">
+                <File Id="DevExpress.RichEdit.v19.2.Core.resources.dll_628196544" Source="PublishedFiles\ja\DevExpress.RichEdit.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_3608582105" Guid="5056a385-45fb-4d81-a13e-55b7b82c644e">
+                <File Id="DevExpress.Sparkline.v19.2.Core.resources.dll_3608582105" Source="PublishedFiles\ja\DevExpress.Sparkline.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Utils.v19.2.resources.dll_1629918947" Guid="5056a385-45fb-4d81-a13e-55b7eb6c176f">
+                <File Id="DevExpress.Utils.v19.2.resources.dll_1629918947" Source="PublishedFiles\ja\DevExpress.Utils.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraBars.v19.2.resources.dll_2137141499" Guid="5056a385-45fb-4d81-a13e-55b785493b7d">
+                <File Id="DevExpress.XtraBars.v19.2.resources.dll_2137141499" Source="PublishedFiles\ja\DevExpress.XtraBars.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_739338921" Guid="5056a385-45fb-4d81-a13e-55b76fe54df5">
+                <File Id="DevExpress.XtraEditors.v19.2.resources.dll_739338921" Source="PublishedFiles\ja\DevExpress.XtraEditors.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_568359005" Guid="5056a385-45fb-4d81-a13e-55b70fcab09c">
+                <File Id="DevExpress.XtraGrid.v19.2.resources.dll_568359005" Source="PublishedFiles\ja\DevExpress.XtraGrid.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_139219690" Guid="5056a385-45fb-4d81-a13e-55b7cd1125fb">
+                <File Id="DevExpress.XtraLayout.v19.2.resources.dll_139219690" Source="PublishedFiles\ja\DevExpress.XtraLayout.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_3043067860" Guid="5056a385-45fb-4d81-a13e-55b76c707f5c">
+                <File Id="DevExpress.XtraPrinting.v19.2.resources.dll_3043067860" Source="PublishedFiles\ja\DevExpress.XtraPrinting.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_485473079" Guid="5056a385-45fb-4d81-a13e-55b7f6c26df6">
+                <File Id="DevExpress.XtraScheduler.v19.2.Core.resources.dll_485473079" Source="PublishedFiles\ja\DevExpress.XtraScheduler.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_220242589" Guid="5056a385-45fb-4d81-a13e-55b7cfa646bc">
+                <File Id="DevExpress.XtraScheduler.v19.2.resources.dll_220242589" Source="PublishedFiles\ja\DevExpress.XtraScheduler.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_2729749544" Guid="5056a385-45fb-4d81-a13e-55b7ee7f9f1d">
+                <File Id="DevExpress.XtraTreeList.v19.2.resources.dll_2729749544" Source="PublishedFiles\ja\DevExpress.XtraTreeList.v19.2.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="ru" Name="ru">
+
+              <Component Id="Component.DevExpress.Data.v19.2.resources.dll_95811216" Guid="5056a385-45fb-4d81-a13e-55b7fae7a8c9">
+                <File Id="DevExpress.Data.v19.2.resources.dll_95811216" Source="PublishedFiles\ru\DevExpress.Data.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Office.v19.2.Core.resources.dll_1480005616" Guid="5056a385-45fb-4d81-a13e-55b74f9a1011">
+                <File Id="DevExpress.Office.v19.2.Core.resources.dll_1480005616" Source="PublishedFiles\ru\DevExpress.Office.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_812761723" Guid="5056a385-45fb-4d81-a13e-55b7597ad757">
+                <File Id="DevExpress.Pdf.v19.2.Core.resources.dll_812761723" Source="PublishedFiles\ru\DevExpress.Pdf.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_676046392" Guid="5056a385-45fb-4d81-a13e-55b7b49f2007">
+                <File Id="DevExpress.Printing.v19.2.Core.resources.dll_676046392" Source="PublishedFiles\ru\DevExpress.Printing.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_272631568" Guid="5056a385-45fb-4d81-a13e-55b7092d1aba">
+                <File Id="DevExpress.RichEdit.v19.2.Core.resources.dll_272631568" Source="PublishedFiles\ru\DevExpress.RichEdit.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_258574318" Guid="5056a385-45fb-4d81-a13e-55b79fa41436">
+                <File Id="DevExpress.Sparkline.v19.2.Core.resources.dll_258574318" Source="PublishedFiles\ru\DevExpress.Sparkline.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.Utils.v19.2.resources.dll_596956926" Guid="5056a385-45fb-4d81-a13e-55b77239e900">
+                <File Id="DevExpress.Utils.v19.2.resources.dll_596956926" Source="PublishedFiles\ru\DevExpress.Utils.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraBars.v19.2.resources.dll_2269975816" Guid="5056a385-45fb-4d81-a13e-55b7c6dbd59e">
+                <File Id="DevExpress.XtraBars.v19.2.resources.dll_2269975816" Source="PublishedFiles\ru\DevExpress.XtraBars.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_2821133338" Guid="5056a385-45fb-4d81-a13e-55b70235ef85">
+                <File Id="DevExpress.XtraEditors.v19.2.resources.dll_2821133338" Source="PublishedFiles\ru\DevExpress.XtraEditors.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_309264630" Guid="5056a385-45fb-4d81-a13e-55b743af1077">
+                <File Id="DevExpress.XtraGrid.v19.2.resources.dll_309264630" Source="PublishedFiles\ru\DevExpress.XtraGrid.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_2769611255" Guid="5056a385-45fb-4d81-a13e-55b767b7718a">
+                <File Id="DevExpress.XtraLayout.v19.2.resources.dll_2769611255" Source="PublishedFiles\ru\DevExpress.XtraLayout.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_2974105428" Guid="5056a385-45fb-4d81-a13e-55b7b91ab70f">
+                <File Id="DevExpress.XtraPrinting.v19.2.resources.dll_2974105428" Source="PublishedFiles\ru\DevExpress.XtraPrinting.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_1978218014" Guid="5056a385-45fb-4d81-a13e-55b7077cf724">
+                <File Id="DevExpress.XtraScheduler.v19.2.Core.resources.dll_1978218014" Source="PublishedFiles\ru\DevExpress.XtraScheduler.v19.2.Core.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_2507050263" Guid="5056a385-45fb-4d81-a13e-55b72cbe7f11">
+                <File Id="DevExpress.XtraScheduler.v19.2.resources.dll_2507050263" Source="PublishedFiles\ru\DevExpress.XtraScheduler.v19.2.resources.dll" />
+              </Component>
+
+              <Component Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_1306515389" Guid="5056a385-45fb-4d81-a13e-55b7bfc20b94">
+                <File Id="DevExpress.XtraTreeList.v19.2.resources.dll_1306515389" Source="PublishedFiles\ru\DevExpress.XtraTreeList.v19.2.resources.dll" />
+              </Component>
+
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
+        <Directory Id="ProgramMenuFolder.Lifecodes" Name="Lifecodes">
+
+          <Component Id="Component.ProgramMenuFolder.Lifecodes.EmptyDirectory" Guid="5056a385-45fb-4d81-a13e-55b7a61e00d8">
+            <CreateFolder />
+            <RemoveFolder Id="ProgramMenuFolder.Lifecodes" On="uninstall" />
+
+            <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+              <RegistryValue Value="0" Type="string" KeyPath="yes" />
+            </RegistryKey>
+          </Component>
+
+        </Directory>
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="DesktopFolder">
+
+        <Component Id="Component.DesktopFolder.EmptyDirectory" Guid="5056a385-45fb-4d81-a13e-55b7552b0007">
+          <CreateFolder />
+
+          <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+            <RegistryValue Value="0" Type="string" KeyPath="yes" />
+          </RegistryKey>
+        </Component>
+
+      </Directory>
+
+      <Component Id="TARGETDIR" Guid="5056a385-45fb-4d81-a13e-55b789e1cf74" KeyPath="yes">
+        <CreateFolder />
+        <RemoveFolder Id="TARGETDIR" On="uninstall" />
+      </Component>
+
+    </Directory>
+
+    <Upgrade Id="74605fea-7c18-46ad-b54c-6a9181988a85">
+      <UpgradeVersion Minimum="0.0.0.0" Maximum="1.0.0" IncludeMinimum="yes" IncludeMaximum="no" Property="UPGRADEFOUND" />
+      <UpgradeVersion Minimum="1.0.0" IncludeMinimum="no" Property="NEWPRODUCTFOUND" />
+    </Upgrade>
+
+    <CustomAction Id="PreventDowngrading" Error="Newer version already installed" />
+
+    <Property Id="Shortcut.Beispiel_Export.exe_941701281._...TCH_IT_Beispiel_Export_Utility_.WorkDir" Value="[ProgramFilesFolder]\LIFECODES\MATCH IT Beispiel Export Utility" />
+    <Property Id="Shortcut.Beispiel_Export.exe_941701281._...TCH_IT_Beispiel_Export_Utility.1.WorkDir" Value="[ProgramFilesFolder]\LIFECODES\MATCH IT Beispiel Export Utility" />
+
+    <Feature Id="Complete" Title="Complete" Absent="allow" Level="1">
+      <ComponentRef Id="Component.Beispiel_Export.exe_941701281" />
+      <ComponentRef Id="Component.Beispiel_Export.exe.config_2522139463" />
+      <ComponentRef Id="Component.Beispiel_Export.pdb_234399727" />
+      <ComponentRef Id="Component.Beispiel.config_249757560" />
+      <ComponentRef Id="Component.BeispielExportModel.dll_2265993536" />
+      <ComponentRef Id="Component.BeispielExportModel.dll.config_3696022491" />
+      <ComponentRef Id="Component.BeispielExportModel.pdb_2349783554" />
+      <ComponentRef Id="Component.BeispielUtilityPresenter.dll_1229651398" />
+      <ComponentRef Id="Component.BeispielUtilityPresenter.pdb_1701641678" />
+      <ComponentRef Id="Component.BeispielViewModel.dll_1993867295" />
+      <ComponentRef Id="Component.BeispielViewModel.pdb_3512372801" />
+      <ComponentRef Id="Component.DataAccess.dll_2713051302" />
+      <ComponentRef Id="Component.DataAccess.dll.config_867392436" />
+      <ComponentRef Id="Component.DataAccess.pdb_4217079166" />
+      <ComponentRef Id="Component.DevExpress.BonusSkins.v19.2.dll_2930522132" />
+      <ComponentRef Id="Component.DevExpress.Data.v19.2.dll_1214612250" />
+      <ComponentRef Id="Component.DevExpress.Data.v19.2.xml_1214677814" />
+      <ComponentRef Id="Component.DevExpress.Images.v19.2.dll_1554222061" />
+      <ComponentRef Id="Component.DevExpress.Office.v19.2.Core.dll_4020367935" />
+      <ComponentRef Id="Component.DevExpress.Office.v19.2.Core.xml_2962616896" />
+      <ComponentRef Id="Component.DevExpress.Pdf.v19.2.Core.dll_3477404071" />
+      <ComponentRef Id="Component.DevExpress.Pdf.v19.2.Core.xml_3477469627" />
+      <ComponentRef Id="Component.DevExpress.Printing.v19.2.Core.dll_419412123" />
+      <ComponentRef Id="Component.DevExpress.Printing.v19.2.Core.xml_3146984758" />
+      <ComponentRef Id="Component.DevExpress.RichEdit.v19.2.Core.dll_221975947" />
+      <ComponentRef Id="Component.DevExpress.RichEdit.v19.2.Core.xml_2949024294" />
+      <ComponentRef Id="Component.DevExpress.Sparkline.v19.2.Core.dll_3169792546" />
+      <ComponentRef Id="Component.DevExpress.Sparkline.v19.2.Core.xml_3182845878" />
+      <ComponentRef Id="Component.DevExpress.Utils.v19.2.dll_331540235" />
+      <ComponentRef Id="Component.DevExpress.Utils.v19.2.xml_1898934896" />
+      <ComponentRef Id="Component.DevExpress.XtraBars.v19.2.dll_2762450427" />
+      <ComponentRef Id="Component.DevExpress.XtraBars.v19.2.xml_2762515991" />
+      <ComponentRef Id="Component.DevExpress.XtraEditors.v19.2.dll_2874065518" />
+      <ComponentRef Id="Component.DevExpress.XtraEditors.v19.2.xml_3638739567" />
+      <ComponentRef Id="Component.DevExpress.XtraGrid.v19.2.dll_2542146726" />
+      <ComponentRef Id="Component.DevExpress.XtraGrid.v19.2.xml_2542212274" />
+      <ComponentRef Id="Component.DevExpress.XtraLayout.v19.2.dll_1488684474" />
+      <ComponentRef Id="Component.DevExpress.XtraLayout.v19.2.xml_2214198526" />
+      <ComponentRef Id="Component.DevExpress.XtraPrinting.v19.2.dll_899745652" />
+      <ComponentRef Id="Component.DevExpress.XtraPrinting.v19.2.xml_899811176" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.Core.dll_4082438417" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.Core.xml_4069385085" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.dll_2315616009" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.xml_3880389230" />
+      <ComponentRef Id="Component.DevExpress.XtraTreeList.v19.2.dll_1630040618" />
+      <ComponentRef Id="Component.DevExpress.XtraTreeList.v19.2.xml_1630106134" />
+      <ComponentRef Id="Component.EntityFramework.dll_2295560787" />
+      <ComponentRef Id="Component.EntityFramework.SqlServer.dll_2140173085" />
+      <ComponentRef Id="Component.EntityFramework.xml_2282507455" />
+      <ComponentRef Id="Component.EvolutionDBFacade.dll_867031146" />
+      <ComponentRef Id="Component.EvolutionDBFacade.pdb_60986368" />
+      <ComponentRef Id="Component.EvolutionDBFacade.xml_866965606" />
+      <ComponentRef Id="Component.Microsoft.Practices.EnterpriseLibrary.Common.dll_797932281" />
+      <ComponentRef Id="Component.Microsoft.Practices.EnterpriseLibrary.Data.dll_2310133108" />
+      <ComponentRef Id="Component.Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll_534353646" />
+      <ComponentRef Id="Component.Microsoft.Practices.ObjectBuilder2.dll_1636818377" />
+      <ComponentRef Id="Component.Microsoft.Practices.Unity.dll_1755056358" />
+      <ComponentRef Id="Component.DevExpress.Data.v19.2.resources.dll_1007386988" />
+      <ComponentRef Id="Component.DevExpress.Office.v19.2.Core.resources.dll_3822682635" />
+      <ComponentRef Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_3736141309" />
+      <ComponentRef Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_2886996431" />
+      <ComponentRef Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_829484937" />
+      <ComponentRef Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_109231811" />
+      <ComponentRef Id="Component.DevExpress.Utils.v19.2.resources.dll_1921641714" />
+      <ComponentRef Id="Component.DevExpress.XtraBars.v19.2.resources.dll_1918539029" />
+      <ComponentRef Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_2853769078" />
+      <ComponentRef Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_2516232502" />
+      <ComponentRef Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_3765075918" />
+      <ComponentRef Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_551338518" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_2900794122" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_3764381464" />
+      <ComponentRef Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_4272216772" />
+      <ComponentRef Id="Component.DevExpress.Data.v19.2.resources.dll_2004998272" />
+      <ComponentRef Id="Component.DevExpress.Office.v19.2.Core.resources.dll_961897606" />
+      <ComponentRef Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_3408131736" />
+      <ComponentRef Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_3166508224" />
+      <ComponentRef Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_4270627702" />
+      <ComponentRef Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_3122310010" />
+      <ComponentRef Id="Component.DevExpress.Utils.v19.2.resources.dll_572580490" />
+      <ComponentRef Id="Component.DevExpress.XtraBars.v19.2.resources.dll_568010500" />
+      <ComponentRef Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_161117515" />
+      <ComponentRef Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_2804319519" />
+      <ComponentRef Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_3569924384" />
+      <ComponentRef Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_1870816876" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_2495011437" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_2085074402" />
+      <ComponentRef Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_3748532332" />
+      <ComponentRef Id="Component.DevExpress.Data.v19.2.resources.dll_413458876" />
+      <ComponentRef Id="Component.DevExpress.Office.v19.2.Core.resources.dll_1392489440" />
+      <ComponentRef Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_3786456484" />
+      <ComponentRef Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_761892996" />
+      <ComponentRef Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_628196544" />
+      <ComponentRef Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_3608582105" />
+      <ComponentRef Id="Component.DevExpress.Utils.v19.2.resources.dll_1629918947" />
+      <ComponentRef Id="Component.DevExpress.XtraBars.v19.2.resources.dll_2137141499" />
+      <ComponentRef Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_739338921" />
+      <ComponentRef Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_568359005" />
+      <ComponentRef Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_139219690" />
+      <ComponentRef Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_3043067860" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_485473079" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_220242589" />
+      <ComponentRef Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_2729749544" />
+      <ComponentRef Id="Component.DevExpress.Data.v19.2.resources.dll_95811216" />
+      <ComponentRef Id="Component.DevExpress.Office.v19.2.Core.resources.dll_1480005616" />
+      <ComponentRef Id="Component.DevExpress.Pdf.v19.2.Core.resources.dll_812761723" />
+      <ComponentRef Id="Component.DevExpress.Printing.v19.2.Core.resources.dll_676046392" />
+      <ComponentRef Id="Component.DevExpress.RichEdit.v19.2.Core.resources.dll_272631568" />
+      <ComponentRef Id="Component.DevExpress.Sparkline.v19.2.Core.resources.dll_258574318" />
+      <ComponentRef Id="Component.DevExpress.Utils.v19.2.resources.dll_596956926" />
+      <ComponentRef Id="Component.DevExpress.XtraBars.v19.2.resources.dll_2269975816" />
+      <ComponentRef Id="Component.DevExpress.XtraEditors.v19.2.resources.dll_2821133338" />
+      <ComponentRef Id="Component.DevExpress.XtraGrid.v19.2.resources.dll_309264630" />
+      <ComponentRef Id="Component.DevExpress.XtraLayout.v19.2.resources.dll_2769611255" />
+      <ComponentRef Id="Component.DevExpress.XtraPrinting.v19.2.resources.dll_2974105428" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.Core.resources.dll_1978218014" />
+      <ComponentRef Id="Component.DevExpress.XtraScheduler.v19.2.resources.dll_2507050263" />
+      <ComponentRef Id="Component.DevExpress.XtraTreeList.v19.2.resources.dll_1306515389" />
+      <ComponentRef Id="Component.ProgramMenuFolder.Lifecodes.EmptyDirectory" />
+      <ComponentRef Id="Component.DesktopFolder.EmptyDirectory" />
+      <ComponentRef Id="TARGETDIR" />
+    </Feature>
+
+    <InstallExecuteSequence>
+      <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+
+      <RemoveExistingProducts After="InstallInitialize" />
+    </InstallExecuteSequence>
+
+    <InstallUISequence>
+      <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+    </InstallUISequence>
+
+  </Product>
+</Wix>
+

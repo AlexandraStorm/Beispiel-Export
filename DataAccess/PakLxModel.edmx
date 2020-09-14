@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="matchitPlateletABModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'matchitPlateletAB.dbo.tbAlleleProbeVals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbAlleleProbeVals">
+          <Key>
+            <PropertyRef Name="logicId" />
+            <PropertyRef Name="allele" />
+            <PropertyRef Name="alleleLogicalPosition" />
+            <PropertyRef Name="probeName" />
+            <PropertyRef Name="probeLogicalPosition" />
+            <PropertyRef Name="positiveFlag" />
+          </Key>
+          <Property Name="logicId" Type="int" Nullable="false" />
+          <Property Name="allele" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="alleleLogicalPosition" Type="int" Nullable="false" />
+          <Property Name="probeName" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="probeLogicalPosition" Type="int" Nullable="false" />
+          <Property Name="positiveFlag" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'matchitPlateletAB.dbo.tbAntibodyData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbAntibodyData">
+          <Key>
+            <PropertyRef Name="AntibodyID" />
+            <PropertyRef Name="bead" />
+            <PropertyRef Name="lotID" />
+          </Key>
+          <Property Name="AntibodyID" Type="int" Nullable="false" />
+          <Property Name="bead" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="lotID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="rawValue" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="adjust1" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="adjust2" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="adjust3" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="adjustN" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="score" Type="int" />
+          <Property Name="assignment" Type="nvarchar" MaxLength="12" />
+          <Property Name="testDt" Type="datetime" />
+          <Property Name="hiBGAdjust1" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="hiBGAdjust2" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="hiBGAdjust3" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="hiBGScore" Type="int" />
+          <Property Name="hiBGAssignment" Type="nvarchar" MaxLength="12" />
+          <Property Name="weakPct" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="overRide" Type="int" />
+          <Property Name="beadCount" Type="int" />
+          <Property Name="epletAssignment" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="tbAntibodyLot">
+          <Key>
+            <PropertyRef Name="LotID" />
+          </Key>
+          <Property Name="LotID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="LogicID" Type="int" Nullable="false" />
+          <Property Name="ID4DigitLogicID" Type="int" />
+          <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+          <Property Name="AssayName" Type="varchar" MaxLength="30" />
+          <Property Name="AssayVersion" Type="varchar" MaxLength="30" />
+          <Property Name="AssayDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="HiBGCalc1" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="HiBGCalc2" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="HiBGCalc3" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="Con1RangeUpper" Type="int" />
+          <Property Name="Con1RangeLower" Type="int" />
+          <Property Name="Con2RangeUpper" Type="int" />
+          <Property Name="Con2RangeLower" Type="int" />
+          <Property Name="Con3RangeUpper" Type="int" />
+          <Property Name="Con3RangeLower" Type="int" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbAntibodyMethod">
+          <Key>
+            <PropertyRef Name="AntibodyID" />
+          </Key>
+          <Property Name="AntibodyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lotID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="sessionID" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="sampleID" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="logicID" Type="int" />
+          <Property Name="wellLocation" Type="varchar" MaxLength="15" />
+          <Property Name="raw" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="rVal" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="pctPositive" Type="int" />
+          <Property Name="assignCutoff" Type="int" />
+          <Property Name="assignAdjust1" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="assignAdjust2" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="assignAdjust3" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="tail" Type="int" />
+          <Property Name="runDate" Type="datetime" />
+          <Property Name="comments" Type="nvarchar" MaxLength="1024" />
+          <Property Name="includeweak" Type="int" />
+          <Property Name="reviewer" Type="int" />
+          <Property Name="reviewerDt" Type="datetime" />
+          <Property Name="createdt" Type="datetime" />
+          <Property Name="updatedt" Type="datetime" />
+          <Property Name="updateby" Type="int" />
+          <Property Name="manualAssignFlg" Type="int" />
+          <Property Name="ctrlSampleFailed" Type="int" Nullable="false" />
+          <Property Name="lockedFlg" Type="int" Nullable="false" />
+          <Property Name="approved" Type="int" Nullable="false" />
+          <Property Name="useVBAF" Type="int" Nullable="false" />
+          <Property Name="negativeCtrl" Type="bit" />
+          <Property Name="pra" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="virtualPra" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="CalcUsed" Type="int" Nullable="false" />
+          <Property Name="completed" Type="int" Nullable="false" />
+          <Property Name="completedBy" Type="int" />
+          <Property Name="approvedBy" Type="int" />
+          <Property Name="maskedAntigens" Type="varchar(max)" />
+          <Property Name="ApprovedDt" Type="datetime" />
+          <Property Name="CompletedDt" Type="datetime" />
+          <Property Name="useMFICutoff" Type="bit" Nullable="false" />
+          <Property Name="MFICutoffValue" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="ID4DigitLogicID" Type="int" />
+          <Property Name="adjAltCalc1" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="adjAltCalc2" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="TailLogicID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'matchitPlateletAB.dbo.tbAntibodyStats' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbAntibodyStats">
+          <Key>
+            <PropertyRef Name="AntibodyID" />
+            <PropertyRef Name="antigen" />
+          </Key>
+          <Property Name="AntibodyID" Type="int" Nullable="false" />
+          <Property Name="antigen" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="positiveThis" Type="int" />
+          <Property Name="positiveOther" Type="int" />
+          <Property Name="negativeThis" Type="int" />
+          <Property Name="negativeOther" Type="int" />
+          <Property Name="chiSquare" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="rValue" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="pctPositive" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="tail" Type="int" />
+          <Property Name="traceType" Type="nvarchar" MaxLength="50" />
+          <Property Name="strength" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="UpdateDt" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'matchitPlateletAB.dbo.tbPakLXDBVer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbPakLXDBVer">
+          <Key>
+            <PropertyRef Name="dbversion" />
+          </Key>
+          <Property Name="version" Type="varchar" MaxLength="5" />
+          <Property Name="dbversion" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Dnaversion" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="tbPhenotypes">
+          <Key>
+            <PropertyRef Name="LotID" />
+            <PropertyRef Name="ProbeName" />
+          </Key>
+          <Property Name="LotID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProbeName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phenotype" Type="text" />
+        </EntityType>
+        <Association Name="FK_tbAntibodyData_tbAntibodyMethod">
+          <End Role="tbAntibodyMethod" Type="Self.tbAntibodyMethod" Multiplicity="1" />
+          <End Role="tbAntibodyData" Type="Self.tbAntibodyData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAntibodyMethod">
+              <PropertyRef Name="AntibodyID" />
+            </Principal>
+            <Dependent Role="tbAntibodyData">
+              <PropertyRef Name="AntibodyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbAntibodyStats_tbAntibodyMethod">
+          <End Role="tbAntibodyMethod" Type="Self.tbAntibodyMethod" Multiplicity="1" />
+          <End Role="tbAntibodyStats" Type="Self.tbAntibodyStats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAntibodyMethod">
+              <PropertyRef Name="AntibodyID" />
+            </Principal>
+            <Dependent Role="tbAntibodyStats">
+              <PropertyRef Name="AntibodyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetPakLxProbeValues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="logicName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSampleForLoad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="batchID" Type="varchar" Mode="In" />
+          <Parameter Name="sampleID" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="matchitPlateletABModelStoreContainer">
+          <EntitySet Name="tbAntibodyLot" EntityType="Self.tbAntibodyLot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbAntibodyMethod" EntityType="Self.tbAntibodyMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPhenotypes" EntityType="Self.tbPhenotypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbAlleleProbeVals" EntityType="Self.tbAlleleProbeVals" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbAlleleProbeVals].[logicId] AS [logicId], 
+    [tbAlleleProbeVals].[allele] AS [allele], 
+    [tbAlleleProbeVals].[alleleLogicalPosition] AS [alleleLogicalPosition], 
+    [tbAlleleProbeVals].[probeName] AS [probeName], 
+    [tbAlleleProbeVals].[probeLogicalPosition] AS [probeLogicalPosition], 
+    [tbAlleleProbeVals].[positiveFlag] AS [positiveFlag]
+    FROM [dbo].[tbAlleleProbeVals] AS [tbAlleleProbeVals]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbAntibodyData" EntityType="Self.tbAntibodyData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbAntibodyData].[AntibodyID] AS [AntibodyID], 
+    [tbAntibodyData].[bead] AS [bead], 
+    [tbAntibodyData].[lotID] AS [lotID], 
+    [tbAntibodyData].[rawValue] AS [rawValue], 
+    [tbAntibodyData].[adjust1] AS [adjust1], 
+    [tbAntibodyData].[adjust2] AS [adjust2], 
+    [tbAntibodyData].[adjust3] AS [adjust3], 
+    [tbAntibodyData].[adjustN] AS [adjustN], 
+    [tbAntibodyData].[score] AS [score], 
+    [tbAntibodyData].[assignment] AS [assignment], 
+    [tbAntibodyData].[testDt] AS [testDt], 
+    [tbAntibodyData].[hiBGAdjust1] AS [hiBGAdjust1], 
+    [tbAntibodyData].[hiBGAdjust2] AS [hiBGAdjust2], 
+    [tbAntibodyData].[hiBGAdjust3] AS [hiBGAdjust3], 
+    [tbAntibodyData].[hiBGScore] AS [hiBGScore], 
+    [tbAntibodyData].[hiBGAssignment] AS [hiBGAssignment], 
+    [tbAntibodyData].[weakPct] AS [weakPct], 
+    [tbAntibodyData].[overRide] AS [overRide], 
+    [tbAntibodyData].[beadCount] AS [beadCount], 
+    [tbAntibodyData].[epletAssignment] AS [epletAssignment]
+    FROM [dbo].[tbAntibodyData] AS [tbAntibodyData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbAntibodyStats" EntityType="Self.tbAntibodyStats" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbAntibodyStats].[AntibodyID] AS [AntibodyID], 
+    [tbAntibodyStats].[antigen] AS [antigen], 
+    [tbAntibodyStats].[positiveThis] AS [positiveThis], 
+    [tbAntibodyStats].[positiveOther] AS [positiveOther], 
+    [tbAntibodyStats].[negativeThis] AS [negativeThis], 
+    [tbAntibodyStats].[negativeOther] AS [negativeOther], 
+    [tbAntibodyStats].[chiSquare] AS [chiSquare], 
+    [tbAntibodyStats].[rValue] AS [rValue], 
+    [tbAntibodyStats].[pctPositive] AS [pctPositive], 
+    [tbAntibodyStats].[tail] AS [tail], 
+    [tbAntibodyStats].[traceType] AS [traceType], 
+    [tbAntibodyStats].[strength] AS [strength], 
+    [tbAntibodyStats].[UpdateDt] AS [UpdateDt], 
+    [tbAntibodyStats].[UpdateBy] AS [UpdateBy]
+    FROM [dbo].[tbAntibodyStats] AS [tbAntibodyStats]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbPakLXDBVer" EntityType="Self.tbPakLXDBVer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbPakLXDBVer].[version] AS [version], 
+    [tbPakLXDBVer].[dbversion] AS [dbversion], 
+    [tbPakLXDBVer].[Dnaversion] AS [Dnaversion]
+    FROM [dbo].[tbPakLXDBVer] AS [tbPakLXDBVer]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tbAntibodyData_tbAntibodyMethod" Association="Self.FK_tbAntibodyData_tbAntibodyMethod">
+            <End Role="tbAntibodyMethod" EntitySet="tbAntibodyMethod" />
+            <End Role="tbAntibodyData" EntitySet="tbAntibodyData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbAntibodyStats_tbAntibodyMethod" Association="Self.FK_tbAntibodyStats_tbAntibodyMethod">
+            <End Role="tbAntibodyMethod" EntitySet="tbAntibodyMethod" />
+            <End Role="tbAntibodyStats" EntitySet="tbAntibodyStats" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="matchitPlateletABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbAntibodyLot">
+          <Key>
+            <PropertyRef Name="LotID" />
+          </Key>
+          <Property Name="LotID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LogicID" Type="Int32" Nullable="false" />
+          <Property Name="ID4DigitLogicID" Type="Int32" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AssayName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AssayVersion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AssayDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="HiBGCalc1" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="HiBGCalc2" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="HiBGCalc3" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="Con1RangeUpper" Type="Int32" />
+          <Property Name="Con1RangeLower" Type="Int32" />
+          <Property Name="Con2RangeUpper" Type="Int32" />
+          <Property Name="Con2RangeLower" Type="Int32" />
+          <Property Name="Con3RangeUpper" Type="Int32" />
+          <Property Name="Con3RangeLower" Type="Int32" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbAntibodyMethod">
+          <Key>
+            <PropertyRef Name="AntibodyID" />
+          </Key>
+          <Property Name="AntibodyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lotID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sessionID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sampleID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="logicID" Type="Int32" />
+          <Property Name="wellLocation" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="raw" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="rVal" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="pctPositive" Type="Int32" />
+          <Property Name="assignCutoff" Type="Int32" />
+          <Property Name="assignAdjust1" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="assignAdjust2" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="assignAdjust3" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="tail" Type="Int32" />
+          <Property Name="runDate" Type="DateTime" Precision="3" />
+          <Property Name="comments" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="includeweak" Type="Int32" />
+          <Property Name="reviewer" Type="Int32" />
+          <Property Name="reviewerDt" Type="DateTime" Precision="3" />
+          <Property Name="createdt" Type="DateTime" Precision="3" />
+          <Property Name="updatedt" Type="DateTime" Precision="3" />
+          <Property Name="updateby" Type="Int32" />
+          <Property Name="manualAssignFlg" Type="Int32" />
+          <Property Name="ctrlSampleFailed" Type="Int32" Nullable="false" />
+          <Property Name="lockedFlg" Type="Int32" Nullable="false" />
+          <Property Name="approved" Type="Int32" Nullable="false" />
+          <Property Name="useVBAF" Type="Int32" Nullable="false" />
+          <Property Name="negativeCtrl" Type="Boolean" />
+          <Property Name="pra" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="virtualPra" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="CalcUsed" Type="Int32" Nullable="false" />
+          <Property Name="completed" Type="Int32" Nullable="false" />
+          <Property Name="completedBy" Type="Int32" />
+          <Property Name="approvedBy" Type="Int32" />
+          <Property Name="maskedAntigens" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedDt" Type="DateTime" Precision="3" />
+          <Property Name="CompletedDt" Type="DateTime" Precision="3" />
+          <Property Name="useMFICutoff" Type="Boolean" Nullable="false" />
+          <Property Name="MFICutoffValue" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="ID4DigitLogicID" Type="Int32" />
+          <Property Name="adjAltCalc1" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="adjAltCalc2" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="TailLogicID" Type="Int32" />
+          <NavigationProperty Name="tbAntibodyData" Relationship="Self.FK_tbAntibodyData_tbAntibodyMethod" FromRole="tbAntibodyMethod" ToRole="tbAntibodyData" />
+          <NavigationProperty Name="tbAntibodyStats" Relationship="Self.FK_tbAntibodyStats_tbAntibodyMethod" FromRole="tbAntibodyMethod" ToRole="tbAntibodyStats" />
+        </EntityType>
+        <EntityType Name="tbPhenotypes">
+          <Key>
+            <PropertyRef Name="LotID" />
+            <PropertyRef Name="ProbeName" />
+          </Key>
+          <Property Name="LotID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProbeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phenotype" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbAlleleProbeVals">
+          <Key>
+            <PropertyRef Name="logicId" />
+            <PropertyRef Name="allele" />
+            <PropertyRef Name="alleleLogicalPosition" />
+            <PropertyRef Name="probeName" />
+            <PropertyRef Name="probeLogicalPosition" />
+            <PropertyRef Name="positiveFlag" />
+          </Key>
+          <Property Name="logicId" Type="Int32" Nullable="false" />
+          <Property Name="allele" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alleleLogicalPosition" Type="Int32" Nullable="false" />
+          <Property Name="probeName" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="probeLogicalPosition" Type="Int32" Nullable="false" />
+          <Property Name="positiveFlag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbAntibodyData">
+          <Key>
+            <PropertyRef Name="AntibodyID" />
+            <PropertyRef Name="bead" />
+            <PropertyRef Name="lotID" />
+          </Key>
+          <Property Name="AntibodyID" Type="Int32" Nullable="false" />
+          <Property Name="bead" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lotID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rawValue" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="adjust1" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="adjust2" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="adjust3" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="adjustN" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="score" Type="Int32" />
+          <Property Name="assignment" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="testDt" Type="DateTime" Precision="3" />
+          <Property Name="hiBGAdjust1" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="hiBGAdjust2" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="hiBGAdjust3" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="hiBGScore" Type="Int32" />
+          <Property Name="hiBGAssignment" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="weakPct" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="overRide" Type="Int32" />
+          <Property Name="beadCount" Type="Int32" />
+          <Property Name="epletAssignment" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbAntibodyMethod" Relationship="Self.FK_tbAntibodyData_tbAntibodyMethod" FromRole="tbAntibodyData" ToRole="tbAntibodyMethod" />
+        </EntityType>
+        <EntityType Name="tbAntibodyStats">
+          <Key>
+            <PropertyRef Name="AntibodyID" />
+            <PropertyRef Name="antigen" />
+          </Key>
+          <Property Name="AntibodyID" Type="Int32" Nullable="false" />
+          <Property Name="antigen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="positiveThis" Type="Int32" />
+          <Property Name="positiveOther" Type="Int32" />
+          <Property Name="negativeThis" Type="Int32" />
+          <Property Name="negativeOther" Type="Int32" />
+          <Property Name="chiSquare" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="rValue" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="pctPositive" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="tail" Type="Int32" />
+          <Property Name="traceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strength" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="UpdateDt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <NavigationProperty Name="tbAntibodyMethod" Relationship="Self.FK_tbAntibodyStats_tbAntibodyMethod" FromRole="tbAntibodyStats" ToRole="tbAntibodyMethod" />
+        </EntityType>
+        <EntityType Name="tbPakLXDBVer">
+          <Key>
+            <PropertyRef Name="dbversion" />
+          </Key>
+          <Property Name="version" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="dbversion" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dnaversion" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_tbAntibodyData_tbAntibodyMethod">
+          <End Role="tbAntibodyMethod" Type="Self.tbAntibodyMethod" Multiplicity="1" />
+          <End Role="tbAntibodyData" Type="Self.tbAntibodyData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAntibodyMethod">
+              <PropertyRef Name="AntibodyID" />
+            </Principal>
+            <Dependent Role="tbAntibodyData">
+              <PropertyRef Name="AntibodyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbAntibodyStats_tbAntibodyMethod">
+          <End Role="tbAntibodyMethod" Type="Self.tbAntibodyMethod" Multiplicity="1" />
+          <End Role="tbAntibodyStats" Type="Self.tbAntibodyStats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAntibodyMethod">
+              <PropertyRef Name="AntibodyID" />
+            </Principal>
+            <Dependent Role="tbAntibodyStats">
+              <PropertyRef Name="AntibodyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="matchitPlateletABEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbAntibodyLot" EntityType="Self.tbAntibodyLot" />
+          <EntitySet Name="tbAntibodyMethod" EntityType="Self.tbAntibodyMethod" />
+          <EntitySet Name="tbPhenotypes" EntityType="Self.tbPhenotypes" />
+          <EntitySet Name="tbAlleleProbeVals" EntityType="Self.tbAlleleProbeVals" />
+          <EntitySet Name="tbAntibodyData" EntityType="Self.tbAntibodyData" />
+          <EntitySet Name="tbAntibodyStats" EntityType="Self.tbAntibodyStats" />
+          <EntitySet Name="tbPakLXDBVer" EntityType="Self.tbPakLXDBVer" />
+          <AssociationSet Name="FK_tbAntibodyData_tbAntibodyMethod" Association="Self.FK_tbAntibodyData_tbAntibodyMethod">
+            <End Role="tbAntibodyMethod" EntitySet="tbAntibodyMethod" />
+            <End Role="tbAntibodyData" EntitySet="tbAntibodyData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbAntibodyStats_tbAntibodyMethod" Association="Self.FK_tbAntibodyStats_tbAntibodyMethod">
+            <End Role="tbAntibodyMethod" EntitySet="tbAntibodyMethod" />
+            <End Role="tbAntibodyStats" EntitySet="tbAntibodyStats" />
+          </AssociationSet>
+          <FunctionImport Name="GetPakLxProbeValues" ReturnType="Collection(matchitPlateletABModel.GetPakLxProbeValues_Result)">
+            <Parameter Name="logicName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSampleForLoad" ReturnType="Collection(matchitPlateletABModel.GetSampleForLoad_Result)">
+            <Parameter Name="batchID" Mode="In" Type="String" />
+            <Parameter Name="sampleID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetPakLxProbeValues_Result">
+          <Property Type="String" Name="probeName" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="nmdpName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="allele" Nullable="false" MaxLength="40" />
+          <Property Type="Int32" Name="positiveFlag" Nullable="false" />
+          <Property Type="Int32" Name="alleleLogicalPosition" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetSampleForLoad_Result">
+          <Property Type="String" Name="sessionID" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="sampleID" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="bead" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="rawValue" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="adjust1" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="adjust2" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="adjust3" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="adjustN" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="assignment" Nullable="true" MaxLength="12" />
+          <Property Type="DateTime" Name="test_date" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="hiBGAdjust1" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="hiBGAdjust2" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="hiBGAdjust3" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="hiBGAssignment" Nullable="true" MaxLength="12" />
+          <Property Type="Decimal" Name="weakPct" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="overRide" Nullable="true" />
+          <Property Type="Int32" Name="beadCount" Nullable="true" />
+          <Property Type="Int32" Name="score" Nullable="true" />
+          <Property Type="Int32" Name="hiBGScore" Nullable="true" />
+          <Property Type="String" Name="consensus" Nullable="true" MaxLength="2" />
+          <Property Type="Decimal" Name="ProgressBarValue" Nullable="true" Precision="35" Scale="19" />
+          <Property Type="Int32" Name="Adj1ProgressBarValue" Nullable="false" />
+          <Property Type="Int32" Name="Adj2ProgressBarValue" Nullable="false" />
+          <Property Type="Int32" Name="Adj3ProgressBarValue" Nullable="false" />
+          <Property Type="Int32" Name="AdjNProgressBarValue" Nullable="false" />
+          <Property Type="String" Name="EpitopeCol" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="AlleleA1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleA2Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleB1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleB2Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleBw4Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleBw6Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleC1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleC2Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDR1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDR2Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDR5x1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDR5x2Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDQB1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDQB2Col" Nullable="true" MaxLength="30" />
+          <Property Type="Boolean" Name="HighlightMe" Nullable="true" />
+          <Property Type="Boolean" Name="IsDirty" Nullable="true" />
+          <Property Type="Decimal" Name="Calc2Adjust" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="Calc2Assign" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="Calc2AdjustProgressBarValue" Nullable="false" />
+          <Property Type="Decimal" Name="Calc3Adjust" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="Calc3Assign" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="Calc3AdjustProgressBarValue" Nullable="false" />
+          <Property Type="Decimal" Name="Calc4Adjust" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="Calc4Assign" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="Calc4AdjustProgressBarValue" Nullable="false" />
+          <Property Type="Decimal" Name="Calc5Adjust" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="Calc5Assign" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="Calc5AdjustProgressBarValue" Nullable="false" />
+          <Property Type="Decimal" Name="Calc6Adjust" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="Calc6Assign" Nullable="true" MaxLength="12" />
+          <Property Type="Int32" Name="Calc6AdjustProgressBarValue" Nullable="false" />
+          <Property Type="Decimal" Name="Con3" Nullable="true" Precision="12" Scale="4" />
+          <Property Type="String" Name="AlleleDQA1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDQA2Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDPB1Col" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AlleleDPB2Col" Nullable="true" MaxLength="30" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="matchitPlateletABModelStoreContainer" CdmEntityContainer="matchitPlateletABEntities">
+          <EntitySetMapping Name="tbAntibodyLot">
+            <EntityTypeMapping TypeName="matchitPlateletABModel.tbAntibodyLot">
+              <MappingFragment StoreEntitySet="tbAntibodyLot">
+                <ScalarProperty Name="LotID" ColumnName="LotID" />
+                <ScalarProperty Name="LogicID" ColumnName="LogicID" />
+                <ScalarProperty Name="ID4DigitLogicID" ColumnName="ID4DigitLogicID" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="AssayName" ColumnName="AssayName" />
+                <ScalarProperty Name="AssayVersion" ColumnName="AssayVersion" />
+                <ScalarProperty Name="AssayDescription" ColumnName="AssayDescription" />
+                <ScalarProperty Name="HiBGCalc1" ColumnName="HiBGCalc1" />
+                <ScalarProperty Name="HiBGCalc2" ColumnName="HiBGCalc2" />
+                <ScalarProperty Name="HiBGCalc3" ColumnName="HiBGCalc3" />
+                <ScalarProperty Name="Con1RangeUpper" ColumnName="Con1RangeUpper" />
+                <ScalarProperty Name="Con1RangeLower" ColumnName="Con1RangeLower" />
+                <ScalarProperty Name="Con2RangeUpper" ColumnName="Con2RangeUpper" />
+                <ScalarProperty Name="Con2RangeLower" ColumnName="Con2RangeLower" />
+                <ScalarProperty Name="Con3RangeUpper" ColumnName="Con3RangeUpper" />
+                <ScalarProperty Name="Con3RangeLower" ColumnName="Con3RangeLower" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbAntibodyMethod">
+            <EntityTypeMapping TypeName="matchitPlateletABModel.tbAntibodyMethod">
+              <MappingFragment StoreEntitySet="tbAntibodyMethod">
+                <ScalarProperty Name="AntibodyID" ColumnName="AntibodyID" />
+                <ScalarProperty Name="lotID" ColumnName="lotID" />
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+                <ScalarProperty Name="sampleID" ColumnName="sampleID" />
+                <ScalarProperty Name="logicID" ColumnName="logicID" />
+                <ScalarProperty Name="wellLocation" ColumnName="wellLocation" />
+                <ScalarProperty Name="raw" ColumnName="raw" />
+                <ScalarProperty Name="rVal" ColumnName="rVal" />
+                <ScalarProperty Name="pctPositive" ColumnName="pctPositive" />
+                <ScalarProperty Name="assignCutoff" ColumnName="assignCutoff" />
+                <ScalarProperty Name="assignAdjust1" ColumnName="assignAdjust1" />
+                <ScalarProperty Name="assignAdjust2" ColumnName="assignAdjust2" />
+                <ScalarProperty Name="assignAdjust3" ColumnName="assignAdjust3" />
+                <ScalarProperty Name="tail" ColumnName="tail" />
+                <ScalarProperty Name="runDate" ColumnName="runDate" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="includeweak" ColumnName="includeweak" />
+                <ScalarProperty Name="reviewer" ColumnName="reviewer" />
+                <ScalarProperty Name="reviewerDt" ColumnName="reviewerDt" />
+                <ScalarProperty Name="createdt" ColumnName="createdt" />
+                <ScalarProperty Name="updatedt" ColumnName="updatedt" />
+                <ScalarProperty Name="updateby" ColumnName="updateby" />
+                <ScalarProperty Name="manualAssignFlg" ColumnName="manualAssignFlg" />
+                <ScalarProperty Name="ctrlSampleFailed" ColumnName="ctrlSampleFailed" />
+                <ScalarProperty Name="lockedFlg" ColumnName="lockedFlg" />
+                <ScalarProperty Name="approved" ColumnName="approved" />
+                <ScalarProperty Name="useVBAF" ColumnName="useVBAF" />
+                <ScalarProperty Name="negativeCtrl" ColumnName="negativeCtrl" />
+                <ScalarProperty Name="pra" ColumnName="pra" />
+                <ScalarProperty Name="virtualPra" ColumnName="virtualPra" />
+                <ScalarProperty Name="CalcUsed" ColumnName="CalcUsed" />
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="completedBy" ColumnName="completedBy" />
+                <ScalarProperty Name="approvedBy" ColumnName="approvedBy" />
+                <ScalarProperty Name="maskedAntigens" ColumnName="maskedAntigens" />
+                <ScalarProperty Name="ApprovedDt" ColumnName="ApprovedDt" />
+                <ScalarProperty Name="CompletedDt" ColumnName="CompletedDt" />
+                <ScalarProperty Name="useMFICutoff" ColumnName="useMFICutoff" />
+                <ScalarProperty Name="MFICutoffValue" ColumnName="MFICutoffValue" />
+                <ScalarProperty Name="ID4DigitLogicID" ColumnName="ID4DigitLogicID" />
+                <ScalarProperty Name="adjAltCalc1" ColumnName="adjAltCalc1" />
+                <ScalarProperty Name="adjAltCalc2" ColumnName="adjAltCalc2" />
+                <ScalarProperty Name="TailLogicID" ColumnName="TailLogicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPhenotypes">
+            <EntityTypeMapping TypeName="matchitPlateletABModel.tbPhenotypes">
+              <MappingFragment StoreEntitySet="tbPhenotypes">
+                <ScalarProperty Name="LotID" ColumnName="LotID" />
+                <ScalarProperty Name="ProbeName" ColumnName="ProbeName" />
+                <ScalarProperty Name="Phenotype" ColumnName="Phenotype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbAlleleProbeVals">
+            <EntityTypeMapping TypeName="matchitPlateletABModel.tbAlleleProbeVals">
+              <MappingFragment StoreEntitySet="tbAlleleProbeVals">
+                <ScalarProperty Name="logicId" ColumnName="logicId" />
+                <ScalarProperty Name="allele" ColumnName="allele" />
+                <ScalarProperty Name="alleleLogicalPosition" ColumnName="alleleLogicalPosition" />
+                <ScalarProperty Name="probeName" ColumnName="probeName" />
+                <ScalarProperty Name="probeLogicalPosition" ColumnName="probeLogicalPosition" />
+                <ScalarProperty Name="positiveFlag" ColumnName="positiveFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbAntibodyData">
+            <EntityTypeMapping TypeName="matchitPlateletABModel.tbAntibodyData">
+              <MappingFragment StoreEntitySet="tbAntibodyData">
+                <ScalarProperty Name="AntibodyID" ColumnName="AntibodyID" />
+                <ScalarProperty Name="bead" ColumnName="bead" />
+                <ScalarProperty Name="lotID" ColumnName="lotID" />
+                <ScalarProperty Name="rawValue" ColumnName="rawValue" />
+                <ScalarProperty Name="adjust1" ColumnName="adjust1" />
+                <ScalarProperty Name="adjust2" ColumnName="adjust2" />
+                <ScalarProperty Name="adjust3" ColumnName="adjust3" />
+                <ScalarProperty Name="adjustN" ColumnName="adjustN" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="assignment" ColumnName="assignment" />
+                <ScalarProperty Name="testDt" ColumnName="testDt" />
+                <ScalarProperty Name="hiBGAdjust1" ColumnName="hiBGAdjust1" />
+                <ScalarProperty Name="hiBGAdjust2" ColumnName="hiBGAdjust2" />
+                <ScalarProperty Name="hiBGAdjust3" ColumnName="hiBGAdjust3" />
+                <ScalarProperty Name="hiBGScore" ColumnName="hiBGScore" />
+                <ScalarProperty Name="hiBGAssignment" ColumnName="hiBGAssignment" />
+                <ScalarProperty Name="weakPct" ColumnName="weakPct" />
+                <ScalarProperty Name="overRide" ColumnName="overRide" />
+                <ScalarProperty Name="beadCount" ColumnName="beadCount" />
+                <ScalarProperty Name="epletAssignment" ColumnName="epletAssignment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbAntibodyStats">
+            <EntityTypeMapping TypeName="matchitPlateletABModel.tbAntibodyStats">
+              <MappingFragment StoreEntitySet="tbAntibodyStats">
+                <ScalarProperty Name="AntibodyID" ColumnName="AntibodyID" />
+                <ScalarProperty Name="antigen" ColumnName="antigen" />
+                <ScalarProperty Name="positiveThis" ColumnName="positiveThis" />
+                <ScalarProperty Name="positiveOther" ColumnName="positiveOther" />
+                <ScalarProperty Name="negativeThis" ColumnName="negativeThis" />
+                <ScalarProperty Name="negativeOther" ColumnName="negativeOther" />
+                <ScalarProperty Name="chiSquare" ColumnName="chiSquare" />
+                <ScalarProperty Name="rValue" ColumnName="rValue" />
+                <ScalarProperty Name="pctPositive" ColumnName="pctPositive" />
+                <ScalarProperty Name="tail" ColumnName="tail" />
+                <ScalarProperty Name="traceType" ColumnName="traceType" />
+                <ScalarProperty Name="strength" ColumnName="strength" />
+                <ScalarProperty Name="UpdateDt" ColumnName="UpdateDt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPakLXDBVer">
+            <EntityTypeMapping TypeName="matchitPlateletABModel.tbPakLXDBVer">
+              <MappingFragment StoreEntitySet="tbPakLXDBVer">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="dbversion" ColumnName="dbversion" />
+                <ScalarProperty Name="Dnaversion" ColumnName="Dnaversion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetPakLxProbeValues" FunctionName="matchitPlateletABModel.Store.GetPakLxProbeValues">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="matchitPlateletABModel.GetPakLxProbeValues_Result">
+                <ScalarProperty Name="probeName" ColumnName="probeName" />
+                <ScalarProperty Name="nmdpName" ColumnName="nmdpName" />
+                <ScalarProperty Name="allele" ColumnName="allele" />
+                <ScalarProperty Name="positiveFlag" ColumnName="positiveFlag" />
+                <ScalarProperty Name="alleleLogicalPosition" ColumnName="alleleLogicalPosition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSampleForLoad" FunctionName="matchitPlateletABModel.Store.GetSampleForLoad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="matchitPlateletABModel.GetSampleForLoad_Result">
+                <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+                <ScalarProperty Name="sampleID" ColumnName="sampleID" />
+                <ScalarProperty Name="bead" ColumnName="bead" />
+                <ScalarProperty Name="rawValue" ColumnName="rawValue" />
+                <ScalarProperty Name="adjust1" ColumnName="adjust1" />
+                <ScalarProperty Name="adjust2" ColumnName="adjust2" />
+                <ScalarProperty Name="adjust3" ColumnName="adjust3" />
+                <ScalarProperty Name="adjustN" ColumnName="adjustN" />
+                <ScalarProperty Name="assignment" ColumnName="assignment" />
+                <ScalarProperty Name="test_date" ColumnName="test_date" />
+                <ScalarProperty Name="hiBGAdjust1" ColumnName="hiBGAdjust1" />
+                <ScalarProperty Name="hiBGAdjust2" ColumnName="hiBGAdjust2" />
+                <ScalarProperty Name="hiBGAdjust3" ColumnName="hiBGAdjust3" />
+                <ScalarProperty Name="hiBGAssignment" ColumnName="hiBGAssignment" />
+                <ScalarProperty Name="weakPct" ColumnName="weakPct" />
+                <ScalarProperty Name="overRide" ColumnName="overRide" />
+                <ScalarProperty Name="beadCount" ColumnName="beadCount" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="hiBGScore" ColumnName="hiBGScore" />
+                <ScalarProperty Name="consensus" ColumnName="consensus" />
+                <ScalarProperty Name="ProgressBarValue" ColumnName="ProgressBarValue" />
+                <ScalarProperty Name="Adj1ProgressBarValue" ColumnName="Adj1ProgressBarValue" />
+                <ScalarProperty Name="Adj2ProgressBarValue" ColumnName="Adj2ProgressBarValue" />
+                <ScalarProperty Name="Adj3ProgressBarValue" ColumnName="Adj3ProgressBarValue" />
+                <ScalarProperty Name="AdjNProgressBarValue" ColumnName="AdjNProgressBarValue" />
+                <ScalarProperty Name="EpitopeCol" ColumnName="EpitopeCol" />
+                <ScalarProperty Name="AlleleA1Col" ColumnName="AlleleA1Col" />
+                <ScalarProperty Name="AlleleA2Col" ColumnName="AlleleA2Col" />
+                <ScalarProperty Name="AlleleB1Col" ColumnName="AlleleB1Col" />
+                <ScalarProperty Name="AlleleB2Col" ColumnName="AlleleB2Col" />
+                <ScalarProperty Name="AlleleBw4Col" ColumnName="AlleleBw4Col" />
+                <ScalarProperty Name="AlleleBw6Col" ColumnName="AlleleBw6Col" />
+                <ScalarProperty Name="AlleleC1Col" ColumnName="AlleleC1Col" />
+                <ScalarProperty Name="AlleleC2Col" ColumnName="AlleleC2Col" />
+                <ScalarProperty Name="AlleleDR1Col" ColumnName="AlleleDR1Col" />
+                <ScalarProperty Name="AlleleDR2Col" ColumnName="AlleleDR2Col" />
+                <ScalarProperty Name="AlleleDR5x1Col" ColumnName="AlleleDR5x1Col" />
+                <ScalarProperty Name="AlleleDR5x2Col" ColumnName="AlleleDR5x2Col" />
+                <ScalarProperty Name="AlleleDQB1Col" ColumnName="AlleleDQB1Col" />
+                <ScalarProperty Name="AlleleDQB2Col" ColumnName="AlleleDQB2Col" />
+                <ScalarProperty Name="HighlightMe" ColumnName="HighlightMe" />
+                <ScalarProperty Name="IsDirty" ColumnName="IsDirty" />
+                <ScalarProperty Name="Calc2Adjust" ColumnName="Calc2Adjust" />
+                <ScalarProperty Name="Calc2Assign" ColumnName="Calc2Assign" />
+                <ScalarProperty Name="Calc2AdjustProgressBarValue" ColumnName="Calc2AdjustProgressBarValue" />
+                <ScalarProperty Name="Calc3Adjust" ColumnName="Calc3Adjust" />
+                <ScalarProperty Name="Calc3Assign" ColumnName="Calc3Assign" />
+                <ScalarProperty Name="Calc3AdjustProgressBarValue" ColumnName="Calc3AdjustProgressBarValue" />
+                <ScalarProperty Name="Calc4Adjust" ColumnName="Calc4Adjust" />
+                <ScalarProperty Name="Calc4Assign" ColumnName="Calc4Assign" />
+                <ScalarProperty Name="Calc4AdjustProgressBarValue" ColumnName="Calc4AdjustProgressBarValue" />
+                <ScalarProperty Name="Calc5Adjust" ColumnName="Calc5Adjust" />
+                <ScalarProperty Name="Calc5Assign" ColumnName="Calc5Assign" />
+                <ScalarProperty Name="Calc5AdjustProgressBarValue" ColumnName="Calc5AdjustProgressBarValue" />
+                <ScalarProperty Name="Calc6Adjust" ColumnName="Calc6Adjust" />
+                <ScalarProperty Name="Calc6Assign" ColumnName="Calc6Assign" />
+                <ScalarProperty Name="Calc6AdjustProgressBarValue" ColumnName="Calc6AdjustProgressBarValue" />
+                <ScalarProperty Name="Con3" ColumnName="Con3" />
+                <ScalarProperty Name="AlleleDQA1Col" ColumnName="AlleleDQA1Col" />
+                <ScalarProperty Name="AlleleDQA2Col" ColumnName="AlleleDQA2Col" />
+                <ScalarProperty Name="AlleleDPB1Col" ColumnName="AlleleDPB1Col" />
+                <ScalarProperty Name="AlleleDPB2Col" ColumnName="AlleleDPB2Col" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
