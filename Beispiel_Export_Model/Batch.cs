@@ -135,16 +135,16 @@ namespace BeispielExportModel
         {
             DateTime from = DateTime.Parse(_fromDate);
             DateTime to = DateTime.Parse(_toDate);
-            
+
             using (var db = new matchitEntities(MIConnString))
             {
                 var listofBatch = await (db.tbAntibodyMethod
                                     .Where(item => (DateTime)item.createdt >= from &&
                                     (DateTime)item.createdt <= to).ToListAsync().ConfigureAwait(false));
 
-                foreach(tbAntibodyMethod dr in listofBatch)
+                foreach (tbAntibodyMethod dr in listofBatch)
                 {
-                    if(dr.lotID.Split('-')[1].ToLower() == "sa1" || dr.lotID.Split('-')[1].ToLower() == "sa2")
+                    if (dr.lotID.Split('-')[1].ToLower() == "sa1" || dr.lotID.Split('-')[1].ToLower() == "sa2")
                     {
                         if (!(FoundBatches.ContainsKey(dr.sessionID)))
                         {
@@ -161,7 +161,7 @@ namespace BeispielExportModel
                         }
                         Sample sample = new Sample(dr.sampleID);
                         batch1.Samples.Add(sample);
-                    }                   
+                    }
                 }
             }
             return 1;
@@ -177,7 +177,7 @@ namespace BeispielExportModel
                 var listofBatch = await (db.tbDNAMethod
                     .Where(item => (DateTime)item.createDt >= from &&
                                     (DateTime)item.createDt <= to)).ToListAsync().ConfigureAwait(false);
-                foreach(tbDNAMethod dr in listofBatch)
+                foreach (tbDNAMethod dr in listofBatch)
                 {
                     if (!FoundBatches.ContainsKey(dr.sessionID))
                     {
@@ -187,7 +187,7 @@ namespace BeispielExportModel
                         FoundBatches.Add(dr.sessionID, batch);
                     }
                     Batch batch1 = FoundBatches[dr.sessionID];
-                    if(batch1.Samples == null)
+                    if (batch1.Samples == null)
                     {
                         batch1.Samples = new List<Sample>();
                     }
@@ -197,7 +197,7 @@ namespace BeispielExportModel
             }
             return 2;
         }
-        
+
         private async Task<int> LoadPakLxBatchesAsync()
         {
             DateTime from = DateTime.Parse(_fromDate);
@@ -229,7 +229,7 @@ namespace BeispielExportModel
             return 3;
         }
 
-        public  List<returnjson> LoadLSAExportDate(string batchname, string sampleid)
+        public List<returnjson> LoadLSAExportDate(string batchname, string sampleid)
         {
             setconnectionstrings();
             using (var db = new matchitEntities(MIConnString))
@@ -250,41 +250,41 @@ namespace BeispielExportModel
                                    bpra = items.PRA,
                                    bsero = items.Serology
                                }).ToList();
-                if(lsadata.Count == 0)
+                if (lsadata.Count == 0)
                 {
                     var lsaolddata = (from items in db.SingleAntigenOncCONExportView
-                                   where items.sessionID == batchname &&
-                                   items.sampleID == sampleid &&
-                                   items.assignment == "Positive"
-                                   orderby items.rawValue descending
-                                   select new returnjson
-                                   {
-                                       bname = items.Batch_Name,
-                                       bsample = items.sampleID,
-                                       bpatient = items.patientName,
-                                       bdrawdate = items.drawDt,
-                                       bantigens = items.allele,
-                                       bmfi = items.rawValue,
-                                       bpra = items.pra,
-                                       bsero = items.Serology
-                                   }).ToList();
-                    if(lsaolddata.Count == 0)
+                                      where items.sessionID == batchname &&
+                                      items.sampleID == sampleid &&
+                                      items.assignment == "Positive"
+                                      orderby items.rawValue descending
+                                      select new returnjson
+                                      {
+                                          bname = items.Batch_Name,
+                                          bsample = items.sampleID,
+                                          bpatient = items.patientName,
+                                          bdrawdate = items.drawDt,
+                                          bantigens = items.allele,
+                                          bmfi = items.rawValue,
+                                          bpra = items.pra,
+                                          bsero = items.Serology
+                                      }).ToList();
+                    if (lsaolddata.Count == 0)
                     {
                         var lsadataNeg = (from items in db.SingleAntigenV2ExportView
-                                    where items.sessionID == batchname &&
-                                    items.Sample_ID == sampleid 
-                                    orderby items.Raw_Value descending
-                                    select new returnjson
-                                    {
-                                        bname = items.Batch_Name,
-                                        bsample = items.Sample_ID,
-                                        bpatient = items.Patient_Name,
-                                        bdrawdate = items.Draw_Date,
-                                        bantigens = string.Empty,
-                                        bmfi = 0,
-                                        bpra = 0,
-                                        bsero = string.Empty
-                                    }).ToList();
+                                          where items.sessionID == batchname &&
+                                          items.Sample_ID == sampleid
+                                          orderby items.Raw_Value descending
+                                          select new returnjson
+                                          {
+                                              bname = items.Batch_Name,
+                                              bsample = items.Sample_ID,
+                                              bpatient = items.Patient_Name,
+                                              bdrawdate = items.Draw_Date,
+                                              bantigens = string.Empty,
+                                              bmfi = 0,
+                                              bpra = 0,
+                                              bsero = string.Empty
+                                          }).ToList();
                         if (lsadataNeg.Count == 0)
                         {
                             var lsaolddataNeg = (from items in db.SingleAntigenOncCONExportView
@@ -312,7 +312,7 @@ namespace BeispielExportModel
                     else
                     {
                         return lsaolddata;
-                    }                    
+                    }
                 }
                 else
                 {
@@ -329,9 +329,9 @@ namespace BeispielExportModel
                                where item.sampleID == sampleid &&
                                item.sessionID == batchname
                                select item.useVBAF);
-                if(useVBAF != null)
+                if (useVBAF != null)
                 {
-                    if(useVBAF.First() == 1)
+                    if (useVBAF.First() == 1)
                     {
                         var lmxdata = (from items in db.LMXReportDataVBAFView
                                        where items.sessionID == batchname && items.sampleID == sampleid
@@ -376,7 +376,7 @@ namespace BeispielExportModel
                 var dnadata = (from items in db.DNAViewReportFinalAssignments
                                join header in db.DNAViewReportHeader
                                on items.sampleID equals header.sampleID
-                               
+
                                where items.Batch == batchname &&
                                items.sampleID == sampleid
                                select new returnDNAjson
@@ -411,8 +411,30 @@ namespace BeispielExportModel
         public string bpatient { get; set; }
         public string bdrawdate { get; set; }
         public string bantigens { get; set; }
-        public decimal? bmfi { get; set; }
-        public decimal? bpra { get; set; }
+        private decimal _bmfi;
+        public decimal? bmfi
+        {
+            get
+            {
+                return Math.Round(_bmfi, 0, MidpointRounding.AwayFromZero);
+            }
+            set 
+            {
+                _bmfi = (decimal)value;
+            }
+        }
+        private decimal _bpra;
+        public decimal? bpra 
+        {
+            get
+            {
+                return Math.Round(_bpra, 0, MidpointRounding.AwayFromZero);
+            } 
+            set
+            {
+                _bpra = (decimal)value;
+            }
+        }
         public string bsero { get; set; }
     }
     public class returnDNAjson
