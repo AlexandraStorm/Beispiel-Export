@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Data.Entity;
 using System.Data.Entity.Core.EntityClient;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
+using Serilog;
 
 namespace BeispielExportModel
 {
@@ -37,6 +37,7 @@ namespace BeispielExportModel
 
     public class Batches
     {
+        private Serilog.ILogger logger;
         public Dictionary<string, Batch> FoundBatches { get; }
         public string MIConnString { get; set; }
         public string PakLxConnString { get; set; }
@@ -45,11 +46,21 @@ namespace BeispielExportModel
         public Batches() { }
         public Batches(string fDate, string tDate)
         {
+            //logger = new LoggerConfiguration()
+            //    .ReadFrom.AppSettings()
+            //    .CreateLogger();
+
             _fromDate = fDate;
             _toDate = tDate;
             FoundBatches = new Dictionary<string, Batch>();
+            logger = new LoggerConfiguration()
+                .WriteTo.File($"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}\\LIFECODES\\Klonlog-.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
 
             setconnectionstrings();
+            logger.Information("Connection Strings Set");
+            logger.Information(PakLxConnString);
+            logger.Information(MIConnString);
             LoadBatches().Wait();
         }
         private void setconnectionstrings()
@@ -63,7 +74,12 @@ namespace BeispielExportModel
                 PakLxConnString = GetPLEntityConnectionString(dBFacade1.GetSqlConnectionString());
                 dBFacade1.Dispose();
             }
-            catch { }
+            catch (Exception ex) 
+            {
+                logger.Information("Could not get Pak-Lx connection string");
+                logger.Error(ex.Message);
+                logger.Error(ex.StackTrace);
+            }
 
         }
         private string GetMIEntityConnectionString(string provider)
@@ -94,7 +110,12 @@ namespace BeispielExportModel
                 //paklx database may not exist
                 await LoadPakLxBatchesAsync().ConfigureAwait(false);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                logger.Information("Could not load Pak-Lx Batches");
+                logger.Error(ex.Message);
+                logger.Error(ex.StackTrace);
+            }
         }
         private async Task<int> LoadLMXAntibodyBatchesAsync()
         {
@@ -231,7 +252,12 @@ namespace BeispielExportModel
 
         public List<returnjson> LoadLSAExportDate(string batchname, string sampleid)
         {
-            setconnectionstrings();
+            try
+            {
+                setconnectionstrings();
+            }
+            catch { }
+
             using (var db = new matchitEntities(MIConnString))
             {
                 var lsadata = (from items in db.SingleAntigenV2ExportView
@@ -322,7 +348,11 @@ namespace BeispielExportModel
         }
         public List<returnlmxjson> LoadMXExportDate(string batchname, string sampleid)
         {
-            setconnectionstrings();
+            try
+            {
+                setconnectionstrings();
+            }
+            catch { }
             using (var db = new matchitEntities(MIConnString))
             {
                 var useVBAF = (from item in db.tbAntibodyMethod
@@ -370,7 +400,11 @@ namespace BeispielExportModel
         }
         public List<returnDNAjson> LoadDNAExportData(string batchname, string sampleid)
         {
-            setconnectionstrings();
+            try
+            {
+                setconnectionstrings();
+            }
+            catch { }
             using (var db = new matchitEntities(MIConnString))
             {
                 var dnadata = (from items in db.DNAViewReportFinalAssignments

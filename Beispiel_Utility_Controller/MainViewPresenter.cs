@@ -5,6 +5,7 @@ using System.Text;
 using BeispielExportModel;
 using BeispielViewModel;
 using System.IO;
+using Serilog;
 
 namespace BeispielUtilityPresenter
 {
@@ -269,7 +270,7 @@ namespace BeispielUtilityPresenter
             {
                 var samples = lsaVM.Where(x => x.batchName == bname).ToList();
                 StringBuilder lsaData = new StringBuilder();
-                lsaData.AppendLine("sample ID,patient name,Draw Date,PRA,Assigned Antigens");
+                lsaData.AppendLine("sample ID;patient name;Draw Date;PRA;Assigned Antigens");
                 foreach (LSAExportData data in samples)
                 {
                     lsaData.AppendLine($"{data.sampleID};{data.patientName};{data.drawDate};{data.pra};{data.assignedAntigen}");
@@ -283,7 +284,7 @@ namespace BeispielUtilityPresenter
             {
                 var samples = lmxVM.Where(x => x.batchName == bname).ToList();
                 StringBuilder lmxData = new StringBuilder();
-                lmxData.AppendLine("sample ID ,patient Name,Draw Date,Class I Results,Class II Results");
+                lmxData.AppendLine("sample ID;patient Name;Draw Date;Class I Results;Class II Results");
                 foreach (LMXExportData data in samples)
                 {
                     lmxData.AppendLine($"{data.sampleID};{data.patientName};{data.drawDate};{data.classiresult};{data.classiiresult}");
@@ -296,7 +297,7 @@ namespace BeispielUtilityPresenter
             {
                 var samples = pakVM.Where(x => x.batchName == bname).ToList();
                 StringBuilder pakData = new StringBuilder();
-                pakData.AppendLine("sample ID,patient name,draw date,GPIV Result,HLA Result,GPIIb-IIIa(HPA-1-3-4) Result,GPIBIX(HPA-2) Result, GPIaIIa(HPA-5) Result, User Comments");
+                pakData.AppendLine("sample ID;patient name;draw date;GPIV Result;HLA Result;GPIIb-IIIa(HPA-1-3-4) Result;GPIBIX(HPA-2) Result;GPIaIIa(HPA-5) Result;User Comments");
                 foreach(PAKExportData data in samples)
                 {
                     pakData.AppendLine($"{data.sampleID};{data.patientName};{data.drawDate};{data.GPIVResult};{data.HLAResult};{data.GPIIbIIIaResult};{data.GPIBIXResult};{data.GPIaGPIIaResult};{data.UserComments}");
@@ -310,10 +311,10 @@ namespace BeispielUtilityPresenter
             {
                 var samples = dnaVM.Where(x => x.batchName == bname).ToList();
                 StringBuilder dnaData = new StringBuilder();
-                dnaData.AppendLine("sample ID,patient name,Draw Date,Locus,AG1,AG2");
+                dnaData.AppendLine("sample ID;patient name;Draw Date;Locus;AG1;AG2");
                 foreach(DNAExportData data in samples)
                 {
-                    dnaData.AppendLine($"{data.sampleID},{data.patientName},{data.drawDate},{data.loci},{data.Ag1},{data.Ag2}");
+                    dnaData.AppendLine($"{data.sampleID};{data.patientName};{data.drawDate};{data.loci};{data.Ag1};{data.Ag2}");
                 }
                 writeFile(bname, dnaData.ToString());
             }

@@ -3,10 +3,10 @@ using System.Data;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using DataAccess;
-using System.Data.Entity.Core.EntityClient;
+using Serilog;
+using Serilog.Sinks.File;
+
 
 namespace BeispielExportModel
 {
@@ -291,6 +291,7 @@ namespace BeispielExportModel
 
     public class PakLx
     {
+        private ILogger logger;
         public string PakLxConnString { get; set; }
         public Dictionary<string, ConcurrentBag<PakLxResult>> results { get; set; }
         public List<IProbe> probelist;
@@ -299,7 +300,10 @@ namespace BeispielExportModel
         public PakLx(string batchName, List<string> sampleids)
         {
             results = new Dictionary<string, ConcurrentBag<PakLxResult>>();
-
+            logger = new LoggerConfiguration()
+                .ReadFrom.AppSettings()
+                .CreateLogger();
+                
             //load only the available sampleids
             probes = GetProbes(batchName);
             probelist = LoadProbes(batchName);
